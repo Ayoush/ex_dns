@@ -73,3 +73,134 @@ The recursive resolver follows the DNS resolution process, querying root name se
 
 ## Response Sent to User:
 The recursive resolver sends the final answer back to the user's DNS resolver, and the browser can then proceed to connect to the resolved IP address.
+
+
+# Example of the Flow :-
+## 1. User Initiates Query:
+User Query: User types "www.example.com" in the browser.
+
+## 2. DNS Resolver at User's End:
+### DNS Resolver Query: 
+The browser's DNS resolver creates a DNS query message.
+```bash
+Header Section:
+  Identification: 1234
+  Flags: QR=0 (Query), RD=1 (Recursion Desired)
+  Question Count: 1
+Question Section:
+  QNAME: www.example.com
+  QTYPE: A (IPv4 address)
+```
+
+## 3. Query Sent to Recursive Resolver:
+### Query Sent to Recursive Resolver:
+The DNS resolver sends the query to a recursive resolver provided by the ISP.
+
+### Recursive Resolver Query:
+Recursive resolver adds its own information:
+```bash
+  Source IP: Resolver's IP address
+  Identification: 5678
+```
+Sends the query to the root name server.
+
+## 4. Root Name Server:
+### Root Name Server Response:
+The root name server responds with information about the Top-Level Domain (TLD) name server for ".com."
+
+Response Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the query)
+    Flags: QR=1 (Response), RD=1 (Recursion Desired), RA=1 (Recursion Available)
+    Answer Count: 1
+  Answer Section:
+    NAME: (empty, root server doesn't provide domain names)
+    TYPE: NS (Name Server)
+    DATA: ns1.verisign.net (the TLD name server for ".com")
+```
+
+## 5. TLD Name Server for ".com":
+### TLD Name Server Query:
+The recursive resolver queries the TLD name server for ".com."
+Query Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the previous response)
+    Flags: QR=0 (Query), RD=1 (Recursion Desired)
+    Question Count: 1
+  Question Section:
+    QNAME: www.example.com
+    QTYPE: A (IPv4 address)
+```
+
+### TLD Name Server Response:
+The TLD name server responds with information about the authoritative name server for "example.com."
+
+Response Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the query)
+    Flags: QR=1 (Response), RD=1 (Recursion Desired), RA=1 (Recursion Available)
+    Answer Count: 1
+  Answer Section:
+    NAME: example.com
+    TYPE: NS (Name Server)
+    DATA: ns1.example.com (the authoritative name server for "example.com")
+```
+
+## 6. Authoritative Name Server for "example.com":
+### Authoritative Name Server Query:
+The recursive resolver queries the authoritative name server for "example.com."
+Query Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the previous response)
+    Flags: QR=0 (Query), RD=1 (Recursion Desired)
+    Question Count: 1
+  Question Section:
+    QNAME: www.example.com
+    QTYPE: A (IPv4 address)
+```
+
+### Authoritative Name Server Response:
+The authoritative name server responds with the IP address of "www.example.com."
+Response Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the query)
+    Flags: QR=1 (Response), RD=1 (Recursion Desired), RA=1 (Recursion Available)
+    Answer Count: 1
+  Answer Section:
+    NAME: www.example.com
+    TYPE: A (IPv4 address)
+    DATA: 192.0.2.1 (example IP address)
+```
+
+## 7. Response Sent to User:
+### Recursive Resolver Response:
+The recursive resolver sends the final answer back to the user's DNS resolver.
+
+Final Response Message:
+```bash
+  Header Section:
+    Identification: 5678 (Echoed from the query)
+    Flags: QR=1 (Response), RD=1 (Recursion Desired), RA=1 (Recursion Available)
+    Answer Count: 1
+  Answer Section:
+    NAME: www.example.com
+    TYPE: A (IPv4 address)
+    DATA: 192.0.2.1 (example IP address)
+```
+
+## Note:-
+The QTYPE field in a DNS query message specifies the type of resource record being requested.
+Different values for QTYPE indicate different types of resource records that the resolver is requesting. For example:
+
+1. A for IPv4 address.
+2. AAAA for IPv6 address.
+3. MX for mail exchange.
+4. NS for name server.
+5. CNAME for canonical name.
+
+The authoritative name server will respond with the appropriate information based on the QTYPE specified in the query. In the case of QTYPE: A, the response will include the IPv4 address associated with the queried domain.
