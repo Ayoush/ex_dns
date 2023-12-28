@@ -34,3 +34,42 @@ The authoritative name server stores the specific DNS records for the requested 
 
 ## Response to User:
 The final IP address or DNS record is returned to the user, completing the resolution process.
+
+# DNS Message Structure:
+
+## Header Section:
+Contains metadata about the DNS message, including:
+
+1. **Identification**: A 16-bit identifier for the query, which is echoed in the response to match queries with responses.
+2. **Flags**: Control flags indicating the type of message (query or response), recursion desired, recursion available, and more.
+3. **Question Count**: Number of entries in the question section.
+4. **Answer, Authority, and Additional Count**: Number of resource records in each of these sections.
+
+## Question Section:
+Contains one or more entries, each specifying a question for the DNS server. A question includes the domain name being queried and the type of resource record being sought (e.g., A, AAAA, MX).
+
+## Answer Section:
+Contains resource records that answer the questions in the question section. For example, if the question is about the A (address) record for a domain, the answer section will include the IP address.
+
+## Authority Section:
+Contains resource records that point to authoritative DNS servers for the queried domain. These servers are considered authoritative for the domain's records.
+
+## Additional Section:
+Contains additional resource records that are not directly related to the query but may provide extra information, such as IP addresses for the authoritative name servers.
+
+# DNS Resolution Process:
+
+## User Initiates Query:
+When you enter a domain name in your browser, the browser's DNS resolver initiates a DNS query.
+
+## DNS Message Sent:
+The DNS resolver constructs a DNS message with the question section containing the domain name and the desired record type (e.g., A record).
+
+## Query Sent to Recursive Resolver:
+The DNS resolver typically sends the query to a recursive resolver provided by the ISP or another designated resolver.
+
+## Recursive Resolver Processes the Query:
+The recursive resolver follows the DNS resolution process, querying root name servers, TLD name servers, and authoritative name servers until it obtains the final answer.
+
+## Response Sent to User:
+The recursive resolver sends the final answer back to the user's DNS resolver, and the browser can then proceed to connect to the resolved IP address.
