@@ -22,7 +22,7 @@
 - [] Create a script to seed dummy urls and unique ips into database.
 - [] Create a DNS resolver which will fetch the request and create a with proper header and question section
 - [] Create a ROOT Server which listens to multiple request and forward the request to appropriate TLD Name server and add answer section
-- [] At the time of application startup we are currently going to spawn 5 authoritive name server for (.com, .edu, .tech, .in, .ex). There respective PID's we will name and seed in the ETS table.
+- [] At the time of application startup we are currently going to spawn 5 authoritive name server for (.com, .edu, .tech, .in, .io). There respective PID's we will name and seed in the ETS table.
 - [] Create dynamic TLD name servers which will accept the request and either redirect the request to already spawned TLD with the request or spawn one for new type. The ultimate goal of all the TLD's is to send request to authoritive name server by fetching the respective PID from ETS table.
 - [] Main script of authoritive name server is simply to hit the target replica as based on the 5 authoritive name server 5 replicas has been created and  the respective IPs will return the DNS query which needs to reach to the our DNS resolver which in return print the IP to the user.
 
