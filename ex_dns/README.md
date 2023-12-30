@@ -18,6 +18,7 @@
 - **Unit Testing:** Reliable and thoroughly tested core functionalities to ensure correctness.
 
 # System Flow
+![System Flow](https://drive.google.com/uc?id=17UAilzcAPYBmQu4Dcj1DeEci1HYNt26w)
 
 **TODO: Add description**
 - [] Since this is going to be read heavy, I highly encourage to create a replicas and index data properly for faster fetching
