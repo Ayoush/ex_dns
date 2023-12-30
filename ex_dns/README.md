@@ -17,6 +17,8 @@
 - **Documentation:** Clear and extensive documentation with usage examples and use cases.
 - **Unit Testing:** Reliable and thoroughly tested core functionalities to ensure correctness.
 
+# System Flow
+
 **TODO: Add description**
 - [] Since this is going to be read heavy, I highly encourage to create a replicas and index data properly for faster fetching
 - [] Create a script to seed dummy urls and unique ips into database.

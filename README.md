@@ -193,7 +193,7 @@ Final Response Message:
     DATA: 192.0.2.1 (example IP address)
 ```
 
-![FLOW DIAGRAM](https://drive.google.com/file/d/1TF1ugBPiENjGLedFj9KSNYUpS-1jfaml/view?usp=sharing)
+![FLOW DIAGRAM](https://drive.google.com/uc?id=1TF1ugBPiENjGLedFj9KSNYUpS-1jfaml)
 
 ## Note:-
 The QTYPE field in a DNS query message specifies the type of resource record being requested.
