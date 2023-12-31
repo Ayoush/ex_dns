@@ -1,8 +1,8 @@
+[![License: BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)
+
 # ExDns
 
 **Domain Name System (DNS) Library for Elixir**
-
-[![License: BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)
 
 `ex_dns` is an Elixir library that mimics some of the fundamental functionalities of a DNS. However, it falls short of being a comprehensive DNS solution. It serves as an abstraction, focusing on basic functionalities such as converting URLs to IP addresses. While it can be valuable for learning purposes and replicating examples from books or blogs on designing highly scalable systems, it is essential to note that ExDns is not suitable for production-grade applications.
 
