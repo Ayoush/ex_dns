@@ -24,3 +24,5 @@ ex_dns-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+.env
