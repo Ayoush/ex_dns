@@ -8,6 +8,7 @@ defmodule ExDns.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      ExDns.Repo
       # Starts a worker by calling: ExDns.Worker.start_link(arg)
       # {ExDns.Worker, arg}
     ]
