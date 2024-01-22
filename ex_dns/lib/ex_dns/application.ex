@@ -11,7 +11,9 @@ defmodule ExDns.Application do
     replicas = ExDns.Utils.generate_repo_names()
 
     constants = [
-      ExDns.Repo
+      ExDns.Repo,
+      ExDns.SeedSupervisor
+
       # Starts a worker by calling: ExDns.Worker.start_link(arg)
       # {ExDns.Worker, arg}
     ]
