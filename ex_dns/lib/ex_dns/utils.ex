@@ -5,6 +5,8 @@ defmodule ExDns.Utils do
     quote(do: unquote(names))
   end
 
+  ## One of the way with which we can configure our replica Repos but We are using the init function which you can see that in repo.ex file
+
   defmacro configure_repos() do
     repo_name = generate_repo_name()
     configs = Enum.map(repo_name, &configure_repo/1)

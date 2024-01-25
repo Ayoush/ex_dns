@@ -8,6 +8,20 @@ defmodule ExDns.Repo do
         otp_app: :ex_dns,
         adapter: Ecto.Adapters.Postgres,
         read_only: true
+
+      def init(_, config) do
+        {:ok, config ++ configure_repos()}
+      end
+
+      defp configure_repos() do
+        [
+          database: "ex_dns_repo",
+          username: System.get_env("username"),
+          password: System.get_env("password"),
+          hostname: System.get_env("host"),
+          pool_size: 10
+        ]
+      end
     end
   end
 
