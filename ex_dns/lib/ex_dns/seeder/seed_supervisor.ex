@@ -6,9 +6,7 @@ defmodule ExDns.SeedSupervisor do
   end
 
   def init(:ok) do
-    children = [
-      {ExDns.SeedGenServer, []}
-    ]
+    children = []
 
     Supervisor.init(children, strategy: :one_for_one)
   end
