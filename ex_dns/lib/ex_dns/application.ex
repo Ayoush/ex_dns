@@ -4,14 +4,21 @@ defmodule ExDns.Application do
   @moduledoc false
 
   use Application
+  require ExDns.Utils
 
   @impl true
   def start(_type, _args) do
-    children = [
-      ExDns.Repo
+    replicas = ExDns.Utils.generate_repo_names()
+
+    constants = [
+      ExDns.Repo,
+      ExDns.SeedSupervisor
+
       # Starts a worker by calling: ExDns.Worker.start_link(arg)
       # {ExDns.Worker, arg}
     ]
+
+    children = constants ++ replicas
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

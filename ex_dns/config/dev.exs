@@ -1,4 +1,5 @@
 import Config
+
 config :ex_dns, ExDns.Repo,
   database: "ex_dns_repo",
   username: System.get_env("username"),
