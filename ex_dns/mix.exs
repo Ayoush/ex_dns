@@ -26,7 +26,9 @@ defmodule ExDns.MixProject do
       {:ecto, "~> 3.11"},
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:logger_file_backend, "~> 0.0.10"}
+      {:logger_file_backend, "~> 0.0.10"},
+      {:gen_stage, "~> 1.0.0"},
+      {:erlport, "~> 0.11.0"}
     ]
   end
 
