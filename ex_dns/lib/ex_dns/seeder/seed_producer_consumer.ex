@@ -14,6 +14,7 @@ defmodule ExDns.Seeder.SeedProducerConsumer do
     for event <- events do
       IO.inspect(event)
     end
+
     {:noreply, events, state}
   end
 end

@@ -29,7 +29,8 @@ defmodule ExDns.MixProject do
       {:logger_file_backend, "~> 0.0.10"},
       {:gen_stage, "~> 1.0.0"},
       {:erlport, "~> 0.11.0"},
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:quantum, "~> 3.0"}
     ]
   end
 
