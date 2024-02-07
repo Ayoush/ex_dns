@@ -5,9 +5,13 @@ defmodule ExDns.SeedSupervisor do
     Supervisor.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
+  @impl true
   def init(:ok) do
-    children = []
-
+    children = [
+      ExDns.Seeder.SeedProducer,
+      ExDns.Seeder.SeedProducerConsumer,
+      ExDns.Seeder.SeedConsumer
+    ]
     Supervisor.init(children, strategy: :one_for_one)
   end
 end

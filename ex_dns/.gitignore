@@ -26,3 +26,5 @@ ex_dns-*.tar
 /tmp/
 
 .env
+
+/logs

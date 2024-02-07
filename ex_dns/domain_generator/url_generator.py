@@ -24,10 +24,6 @@ def generate_random_data(num_entries):
         data.append(entry)
     return data
 
-if __name__ == "__main__":
-    num_entries = 10  # Adjust as needed
+def main(num_entries):
     mock_data = generate_random_data(num_entries)
-    print(mock_data)
-
-    # with open("mock_data.json", "w") as json_file:
-    #     json.dump(mock_data, json_file, indent=2)
+    return json.dumps(mock_data)
