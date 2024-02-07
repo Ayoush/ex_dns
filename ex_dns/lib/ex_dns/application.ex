@@ -12,7 +12,8 @@ defmodule ExDns.Application do
 
     constants = [
       ExDns.Repo,
-      ExDns.SeedSupervisor
+      ExDns.SeedSupervisor,
+      ExDns.Scheduler
 
       # Starts a worker by calling: ExDns.Worker.start_link(arg)
       # {ExDns.Worker, arg}
