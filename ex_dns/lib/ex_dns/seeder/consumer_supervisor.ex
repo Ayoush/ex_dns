@@ -20,6 +20,7 @@ defmodule ExDns.Seeder.ConsumerSupervisor do
     require IEx
     IEx.pry()
   end
+
   def any_consumer?, do: consumers_count() > 0
 
   def consumers_count do
