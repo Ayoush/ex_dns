@@ -1,3 +1,30 @@
+# Understanding DNS: The Internet's Address Book
+Have you ever wondered how your computer knows where to find websites when you type in their names? That's where the Domain Name System (DNS) comes into play. Think of it as the phonebook of the Internet, translating human-readable domain names like nytimes.com or espn.com into computer-friendly IP addresses.
+
+Just like every building has a unique street address, every device connected to the Internet has its own unique IP address. These addresses, like 192.168.1.1 or more complex ones such as 2400:cb00:2048:1::c629:d7a2, are how machines find each other online. DNS servers take care of this translation so that you don't have to memorize strings of numbers.
+
+# Behind the Scenes: How DNS Works
+When you type a website address into your browser, like www.example.com, your computer needs to find the corresponding IP address to load the webpage. This process, known as DNS resolution, is similar to finding a specific home using its street address.
+
+But how does this translation happen? It involves a series of steps passing through different hardware components. However, for the user, it all happens seamlessly in the background without any direct interaction.
+
+Understanding DNS resolution gives insight into how the Internet functions behind the scenes, making browsing the web a smooth experience for users worldwide.
+
+# The DNS Journey: Navigating Through 4 Servers
+When you type a website address into your browser and hit enter, a complex journey begins behind the scenes involving four key players: the DNS recursor, root nameserver, TLD nameserver, and authoritative nameserver. Let's take a closer look at each one:
+
+1. **DNS Recursor**
+Think of the DNS recursor as a diligent librarian. When you request a book (or in this case, a webpage) from the library (Internet), the recursor receives your query through applications like web browsers. It then sets off on a quest to find the requested information, making additional requests if needed to fulfill your DNS query.
+
+2. **Root Nameserver**
+Imagine the root server as the starting point in your quest for knowledge. Like an index in a library, it points you in the direction of various sections. This server is the first step in translating human-readable domain names into IP addresses, providing references to more specific locations in the DNS hierarchy.
+
+3. **TLD Nameserver**
+Next up is the top-level domain (TLD) server, akin to a specific rack of books in the library. It hosts the last portion of a hostname, such as ".com" in "example.com". This server plays a crucial role in narrowing down the search for a specific IP address, guiding the query closer to its destination.
+
+4. **Authoritative Nameserver**
+Finally, we reach the authoritative nameserver, comparable to a comprehensive dictionary in the library. Here, specific names are translated into their definitive IP addresses. It serves as the last stop in the DNS query journey. If the authoritative nameserver possesses the requested record, it promptly returns the IP address to the DNS recursor, completing the cycle.
+
 # Basic Domain Name Resolution Components:
 
 ## Root Name Servers (Root NS):

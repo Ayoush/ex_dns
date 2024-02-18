@@ -46,7 +46,8 @@ defmodule ExDns.Seeder.SeedProducer do
             |> call_python(5)
           end
       end
-      DemandProducer.add(events)
+
+    DemandProducer.add(events)
   end
 
   def call_python(pid, demand) do
