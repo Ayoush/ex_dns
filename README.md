@@ -234,6 +234,8 @@ Different values for QTYPE indicate different types of resource records that the
 4. NS for name server.
 5. CNAME for canonical name.
 
+
+
 The authoritative name server will respond with the appropriate information based on the QTYPE specified in the query. In the case of QTYPE: A, the response will include the IPv4 address associated with the queried domain.
 
 
