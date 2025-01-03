@@ -1,5 +1,3 @@
-[![License: BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)
-
 # ExDns
 
 **Domain Name System (DNS) Library for Elixir**
@@ -16,8 +14,6 @@
 - **Documentation:** Clear and extensive documentation with usage examples and use cases.
 - **Unit Testing:** Reliable and thoroughly tested core functionalities to ensure correctness.
 
-# System Flow
-![System Flow](https://drive.google.com/uc?id=17UAilzcAPYBmQu4Dcj1DeEci1HYNt26w)
 
 **TODO: Add description**
 - [] Since this is going to be read heavy, I highly encourage to create a replicas and index data properly for faster fetching

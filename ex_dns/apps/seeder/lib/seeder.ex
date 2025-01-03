@@ -1,6 +1,6 @@
-defmodule ExDns do
+defmodule Seeder do
   @moduledoc """
-  Documentation for `ExDns`.
+  Documentation for `Seeder`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule ExDns do
 
   ## Examples
 
-      iex> ExDns.hello()
+      iex> Seeder.hello()
       :world
 
   """

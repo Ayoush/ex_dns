@@ -1,27 +1,18 @@
+# This file is responsible for configuring your umbrella
+# and **all applications** and their dependencies with the
+# help of the Config module.
+#
+# Note that all applications in your umbrella share the
+# same configuration and dependencies, which is why they
+# all use the same configuration file. If you want different
+# configurations or dependencies per app, it is best to
+# move said applications out of the umbrella.
 import Config
 
-# import_config "common.exs"
-import_config "#{config_env()}.exs"
-# config :logger, level: :debug
-
-config :logger,
-  backends: [{LoggerFileBackend, :info}, {LoggerFileBackend, :error}]
-
-config :logger, :info,
-  path: "logs/info.log",
-  level: :info
-
-config :logger, :error,
-  path: "logs/error.log",
-  level: :error
-
-config :ex_dns,
-  ecto_repos: [ExDns.Repo],
-  domain_extensions: ["com", "in", "edu", "tech", "io"]
-
-config :ex_dns, ExDns.Scheduler,
-  jobs: [
-    {"* * * * *", {ExDns.Seeder.SeedProducer, :cron_job, []}}
-  ]
-
-config :ex_dns, pid_queue: :queue.new()
+# Sample configuration:
+#
+#     config :logger, :console,
+#       level: :info,
+#       format: "$date $time [$level] $metadata$message\n",
+#       metadata: [:user_id]
+#
