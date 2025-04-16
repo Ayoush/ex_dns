@@ -1,0 +1,62 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background and Title -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  <text x="400" y="30" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">ExDns.Seeder Architecture</text>
+  
+  <!-- Main Components -->
+  <rect x="300" y="70" width="200" height="80" rx="10" fill="#4285f4" opacity="0.8"/>
+  <text x="400" y="110" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">ExDns.Seeder</text>
+  <text x="400" y="130" font-family="Arial" font-size="12" fill="white" text-anchor="middle">GenServer</text>
+  
+  <!-- Subcomponents -->
+  <rect x="120" y="200" width="160" height="60" rx="5" fill="#34a853" opacity="0.8"/>
+  <text x="200" y="235" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Python Interface</text>
+  
+  <rect x="320" y="200" width="160" height="60" rx="5" fill="#34a853" opacity="0.8"/>
+  <text x="400" y="235" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Scheduling Logic</text>
+  
+  <rect x="520" y="200" width="160" height="60" rx="5" fill="#34a853" opacity="0.8"/>
+  <text x="600" y="235" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Event Broadcasting</text>
+  
+  <!-- External Components -->
+  <rect x="120" y="340" width="160" height="60" rx="5" fill="#fbbc05" opacity="0.8"/>
+  <text x="200" y="375" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Python Script</text>
+  
+  <rect x="320" y="340" width="160" height="60" rx="5" fill="#fbbc05" opacity="0.8"/>
+  <text x="400" y="375" font-family="Arial" font-size="14" fill="white" text-anchor="middle">ExDns.Storage</text>
+  
+  <rect x="520" y="340" width="160" height="60" rx="5" fill="#fbbc05" opacity="0.8"/>
+  <text x="600" y="375" font-family="Arial" font-size="14" fill="white" text-anchor="middle">ExDns.PubSub</text>
+  
+  <!-- Data Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Seeder to Subcomponents -->
+  <line x1="340" y1="150" x2="200" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="400" y1="150" x2="400" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="460" y1="150" x2="600" y2="200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Subcomponents to External -->
+  <line x1="200" y1="260" x2="200" y2="340" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="400" y1="260" x2="400" y2="340" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="600" y1="260" x2="600" y2="340" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Python Script to Storage -->
+  <path d="M 240 370 C 270 370, 290 370, 320 370" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  
+  <!-- Storage to Event Broadcasting -->
+  <path d="M 480 370 C 490 370, 510 370, 520 370" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  
+  <!-- Data Flow Description -->
+  <text x="400" y="430" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Data Flow</text>
+  
+  <rect x="100" y="450" width="600" height="120" rx="5" fill="white" stroke="#ddd" />
+  <text x="120" y="475" font-family="Arial" font-size="14">1. Seeder initiates scheduled process</text>
+  <text x="120" y="500" font-family="Arial" font-size="14">2. Python interface calls external script to generate domain data</text>
+  <text x="120" y="525" font-family="Arial" font-size="14">3. Generated DNS records sent to Storage layer</text>
+  <text x="120" y="550" font-family="Arial" font-size="14">4. Storage emits event notifications via PubSub</text>
+</svg>
